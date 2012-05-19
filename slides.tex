@@ -51,9 +51,9 @@
 
 
 % title page
-\title[] % (optional, use only with long paper titles)
+\title[PISM (the Parallel Ice Sheet Model)] % (optional, use only with long paper titles)
 {PISM (the Parallel Ice Sheet Model)}
-\subtitle{Latest 0.5 release, and \\ Where will the community take PISM?}
+\subtitle{Latest 0.5 release, and \\ Where will this community take PISM?}
 
 
 \author[Bueler] % (optional, use only with lots of authors)
@@ -71,7 +71,14 @@ University of Alaska Fairbanks
 
 \begin{document}
 
-\AtBeginSection[]{}
+% define what is shown at the beginning of each section
+\AtBeginSection[]
+{
+ \begin{frame}<beamer>
+   \frametitle{Outline}
+   \tableofcontents[currentsection,subsectionstyle=hide/hide/hide]
+ \end{frame}
+}
 
 
 \setbeamertemplate{background canvas}
@@ -89,11 +96,10 @@ University of Alaska Fairbanks
   % empty
 }
 
-\section{PISM in four slides}
+\section[introduction]{introduction to PISM in XXX slides}
 
 \begin{frame}
-  \frametitle{PISM in 4 slides (1 of 4)}
-  \framesubtitle{New user's point of view}
+  \frametitle{PISM: new user's point of view}
   \begin{columns}
     \begin{column}{50mm}
       \includegraphics[width=50mm]{pismdocs.png}
@@ -101,8 +107,7 @@ University of Alaska Fairbanks
     \begin{column}{70mm}
       \begin{itemize}
       \item website: \alert{www.pism-docs.org}
-      \item runs on Linux, Unix, and Mac OS X: from
-        workstations to supercomputers
+      \item PISM runs on Linux, Unix, and Mac OSX: laptops to supercomputers
       \item stable releases once a year
       \item designed with usability in mind
       \item comprehensive User's Manual with real modeling examples
@@ -114,8 +119,7 @@ University of Alaska Fairbanks
 
 
 \begin{frame}
-  \frametitle{PISM in 4 slides (2 of 4)}
-  \framesubtitle{Power user's point of view}
+  \frametitle{PISM: power user's point of view}
   \begin{itemize}
   \item hosted at \texttt{github.com/pism/pism}
   \item modular and extensible C++ code base
@@ -138,62 +142,145 @@ University of Alaska Fairbanks
   \end{itemize}
 \end{frame}
 
+
 \begin{frame}
-  \frametitle{PISM in 4 slides (3 of 4)}
-  \framesubtitle{Development point of view}
+  \frametitle{who supports development?}
   \begin{itemize}
  \item supported by the NASA Modeling, Analysis and Prediction grant NNX09AJ38G
-   through 2013
-  \item since April 2011 PISM is developed jointly at UAF and the Potsdam
+   (2009--2013)
+   \item earlier NASA grant too (2003--2008)
+  \item since April 2011: jointly developed by UAF and the Potsdam
     Institute for Climate Impact Research (PIK)
-  \item the community of developers may expand in the next year!
+  \item the community of developers likely to expand in the next year!
   \end{itemize}
 \end{frame}
 
+
 \begin{frame}
-  \frametitle{PISM in 4 slides (4 of 4)}
-  \framesubtitle{A community of users}
+  \frametitle{a community of users}
  \begin{center}
     \includegraphics[width=120mm]{pism-users-map.png}
   \end{center}
 \end{frame}
 
-\section[Current status]{Current status (and applications)}
 
 \begin{frame}
   \frametitle{Publications}
 
-  In the 17 months since the start of 2011, 14 papers using PISM have been published or are ``in press''.
-
-FIXME: go to website now?
   \begin{itemize}
-  \item two papers by PISM users outside of UAF and PIK
-    \begin{itemize}
-    \item \textbf{Solgaard et al} (2011) \emph{Snapshots of
-        the Greenland ice sheet configuration in the Pliocene to early
-        Pleistocene}
-    \item \textbf{van Pelt et al} (2012) \emph{Numerical
-        simulations of cyclic behaviour in the Parallel Ice Sheet Model
-        (PISM)}
-    \end{itemize}
-  \item six papers from the PIK group
-    \begin{itemize}
-    \item one description paper
-    \item three modeling
-    \item two applications
-    \end{itemize}
-  \item \textbf{Aschwanden et al} (2012) \emph{An enthalpy
-      formulation for glaciers and ice sheets}
+  \item in the 17 months since the start of 2011: \alert{14 papers} using PISM have been published or are ``in press''
+  \item see the website:
+    \begin{center}
+    \includegraphics[height=0.65\textheight]{publications}
+    \end{center}
   \end{itemize}
-
 \end{frame}
 
+
 \begin{frame}
-  \frametitle{We feature one project a month}
+  \frametitle{one project per month featured at website}
   \begin{center}
     \includegraphics[height=0.75\textheight]{application-of-the-month.png}
   \end{center}
 \end{frame}
+
+
+\begin{frame}
+  \frametitle{who answers \texttt{help@pism-docs.org}?}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+      %\includegraphics[width=1.0\textwidth]{}
+      FIXME
+      
+      Constantine Khroulev
+      \end{center}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+      %\includegraphics[width=1.0\textwidth]{}
+      FIXME
+      
+      Andy Aschwanden
+      \end{center}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{minimal history}
+  \begin{itemize}
+  \item 1984--2001: Craig Lingle does lonely ice sheet/stream modeling
+  \item 2002--2004:
+    \begin{itemize}
+    \item[$\circ$] Craig recruits Jed Brown and me as developers
+    \item[$\circ$] Jed decides on PETSc
+    \end{itemize}
+  \item 2005: first draft is ``COMMVNISM''
+  \item 2006: first PISM release on \texttt{gna.org}
+  \item 2008:
+    \begin{itemize}
+    \item[$\circ$] Constantine
+    \item[$\circ$] PIK visits Alaska
+    \end{itemize}
+  \item 2009: Andy
+  \item 2011:
+    \begin{itemize}
+    \item[$\circ$] merge PISM-PIK
+    \item[$\circ$] move to \texttt{github.com}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\section[latest release]{latest release  (XXX slides)}
+
+\begin{frame}
+  \frametitle{\texttt{stable0.5} release June 2012}
+
+  \begin{itemize}
+  \item get pre-release now:
+    \begin{center}
+    \texttt{git clone git://github.com/pism/pism.git pism0.5}
+    \end{center}
+  \item June ``official'' release after more testing, documentation
+    \begin{itemize}
+    \item[$\circ$] watch for CYROLIST announcement
+    \item[$\circ$] then do ``\texttt{git pull}'' and recompile then
+    \end{itemize}
+  \item changes improve usability\!
+  \item changelog from 0.4:
+    \begin{itemize}
+    \item[$\circ$] requires PETSc 3.2
+    \item[$\circ$] \texttt{-o\_format [netcdf4\_parallel, pnetcdf]}
+    \item[$\circ$] improved documentation of climate forcing code
+    \item[$\circ$] many other ``evolutionary'' not ``revolutionary'' changes \dots
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{NetCDF4 means bigger scales}
+
+  \begin{itemize}
+  \item one limitation on fine grids was ability to write large model results fast
+  \item use of parallel NetCDF4 (or \texttt{pnetcdf} also) allows it
+  \item can do 1km Greenland runs for 100 model years:
+    \begin{center}
+    FIXME %\includegraphics[height=0.65\textheight]{}
+    \end{center}
+  \end{itemize}
+\end{frame}
+
+
+\section[to improve]{what we know we need to improve}
+
+
+\section[where to?]{where is PISM going?  (where will you lead it?)}
+
 
 \begin{frame}
   \frametitle{PISM-PIK merge}
@@ -330,7 +417,6 @@ FIXME: go to website now?
 
 \end{frame}
 
-\section{Future plans}
 
 \begin{frame}
   \frametitle{Future plans}
@@ -357,5 +443,3 @@ FIXME: go to website now?
 
 
 \end{document}
-
-% LocalWords: Debian Ubuntu pismdocs Levermann Winkelmann Martin Aschwanden Bueler parameterization subgrid PIK png Ahmadia PDF pdf doxygen PETSc MPI GPL github UAF NNX AJ Cryosphere Solgaard Reeh Oerlemans polythermal InSAR Joughin Blatter DellaGiustina Marijke Habermann advection multigrid eigen
