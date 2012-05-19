@@ -52,12 +52,12 @@
 
 % title page
 \title[] % (optional, use only with long paper titles)
-{PISM (Parallel Ice Sheet Model)}
-\subtitle{Current status and future plans}
+{PISM (the Parallel Ice Sheet Model)}
+\subtitle{Latest 0.5 release, and \\ Where will the community take PISM?}
 
 
-\author[Khroulev] % (optional, use only with lots of authors)
-{Constantine Khroulev, Ed Bueler, Andy Aschwanden}
+\author[Bueler] % (optional, use only with lots of authors)
+{Ed Bueler}
 % - Give the names in the same order as the appear in the paper.
 % - Use the \inst{?} command only if the authors have different
 % affiliation.
@@ -65,9 +65,9 @@
 University of Alaska Fairbanks
 }
 
-\date{CESM LIWG Meeting, February 2012}
+\date{European PISM Workshop, May 2012}
+%\subject{PISM: Current status and future plans}
 
-\subject{PISM: Current status and future plans}
 
 \begin{document}
 
@@ -89,41 +89,48 @@ University of Alaska Fairbanks
   % empty
 }
 
-\section{PISM in three slides}
+\section{PISM in four slides}
 
 \begin{frame}
-  \frametitle{PISM in 3 slides (1 of 3)}
-  \framesubtitle{User's point of view}
+  \frametitle{PISM in 4 slides (1 of 4)}
+  \framesubtitle{New user's point of view}
   \begin{columns}
     \begin{column}{50mm}
       \includegraphics[width=50mm]{pismdocs.png}
     \end{column}
     \begin{column}{70mm}
       \begin{itemize}
+      \item website: \alert{www.pism-docs.org}
       \item runs on Linux, Unix, and Mac OS X: from
         workstations to supercomputers
-      \item stable versions are released once a year
-      \item source code or a Debian/Ubuntu package
-      \item website: \url{www.pism-docs.org}
-      \item comprehensive User's Manual \mbox{(PDF, 120+ pages)}
+      \item stable releases once a year
       \item designed with usability in mind
+      \item comprehensive User's Manual with real modeling examples
+      \item \url{help@pism-docs.org}
       \end{itemize}
     \end{column}
   \end{columns}
 \end{frame}
 
+
 \begin{frame}
-  \frametitle{PISM in 3 slides (2 of 3)}
+  \frametitle{PISM in 4 slides (2 of 4)}
   \framesubtitle{Power user's point of view}
   \begin{itemize}
-  \item modular and extensible
+  \item hosted at \texttt{github.com/pism/pism}
+  \item modular and extensible C++ code base
   \item documented source code (\texttt{doxygen})
   \item everything is parallel (PETSc and MPI)
     \begin{itemize}
-    \item whole Greenland at 2 km resolution
+    \item whole Antarctica at 5 km resolution
+    \item whole Greenland at 1 km resolution for 100 model years
+      \begin{itemize}
+      \item $\approx$ 100k processor-hours on 512 cores at ARSC
+      \item Gollege at VUW has done bigger for New Zealand ice sheet
+      \end{itemize}
     \end{itemize}
-  \item open source (GPL, hosted on \texttt{github.com})
-  \item well-tested physics
+  \item open source (GPL)
+  \item effective, well-tested physics
     \begin{itemize}
     \item shallow hybrid
     \item enthalpy method
@@ -132,18 +139,20 @@ University of Alaska Fairbanks
 \end{frame}
 
 \begin{frame}
-  \frametitle{PISM in 3 slides (3 of 3)}
+  \frametitle{PISM in 4 slides (3 of 4)}
   \framesubtitle{Development point of view}
   \begin{itemize}
  \item supported by the NASA Modeling, Analysis and Prediction grant NNX09AJ38G
    through 2013
   \item since April 2011 PISM is developed jointly at UAF and the Potsdam
     Institute for Climate Impact Research (PIK)
+  \item the community of developers may expand in the next year!
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{What do people do with PISM?}
+  \frametitle{PISM in 4 slides (4 of 4)}
+  \framesubtitle{A community of users}
  \begin{center}
     \includegraphics[width=120mm]{pism-users-map.png}
   \end{center}
@@ -152,11 +161,11 @@ University of Alaska Fairbanks
 \section[Current status]{Current status (and applications)}
 
 \begin{frame}
-  \frametitle{People publish papers (with pretty pictures)}
+  \frametitle{Publications}
 
-  During the past year \emph{nine} PISM-related papers were published (or are about to
-  appear):
+  In the 17 months since the start of 2011, 14 papers using PISM have been published or are ``in press''.
 
+FIXME: go to website now?
   \begin{itemize}
   \item two papers by PISM users outside of UAF and PIK
     \begin{itemize}
