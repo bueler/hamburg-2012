@@ -12,9 +12,13 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,wasysym}
 \usepackage{lmodern}
-\usepackage{movie15}
+%\usepackage{movie15}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
+
+\usepackage{empheq}
+\usepackage{color}
+\usepackage{animate}
 
 
 % Some useful commands (from MPL)
@@ -31,7 +35,6 @@
 \definecolor{light violet}{HTML}{CAB2D6}
 
 \setbeamercolor{boxed}{fg=black,bg=uaf yellow}
-
 
 \graphicspath{{figures/}}
 
@@ -55,18 +58,12 @@
 {PISM (the Parallel Ice Sheet Model)}
 \subtitle{Latest 0.5 release, and \\ Where will this community take PISM?}
 
-
-\author[Bueler] % (optional, use only with lots of authors)
-{Ed Bueler}
-% - Give the names in the same order as the appear in the paper.
-% - Use the \inst{?} command only if the authors have different
-% affiliation.
+\author[Bueler]{Ed Bueler}
 \institute{
 University of Alaska Fairbanks
 }
 
 \date{European PISM Workshop, May 2012}
-%\subject{PISM: Current status and future plans}
 
 
 \begin{document}
@@ -269,10 +266,41 @@ University of Alaska Fairbanks
   \item one limitation on fine grids was ability to write large model results fast
   \item use of parallel NetCDF4 (or \texttt{pnetcdf} also) allows it
   \item can do 1km Greenland runs for 100 model years:
-    \begin{center}
-    FIXME %\includegraphics[height=0.65\textheight]{}
-    \end{center}
   \end{itemize}
+  
+    \vspace{-2mm}
+    \begin{center}
+    \includegraphics[width=1.0\textwidth]{csurf_insar_pism_all_4000px.png}
+    \end{center}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{update: the Ross ice shelf example}
+
+\begin{columns}
+\begin{column}{0.7\textwidth}
+\vspace{-5mm}
+  \begin{itemize}
+  \item based on extract from 5km ALBMAP and MEASURES (2011) data
+    \begin{itemize}
+    \item not old EISMINT-Ross data
+    \end{itemize}
+  \end{itemize}
+
+\vspace{2mm}
+  \animategraphics[autoplay,loop,height=6cm]{1}{figures/rossquiver}{0}{2}
+
+\end{column}
+
+\begin{column}{0.3\textwidth}
+      \includegraphics[width=0.8\textwidth]{rossscatter_10km.png}\\
+      \rule{0pt}{5mm}\\
+      \includegraphics[width=0.8\textwidth]{rossscatter_5km.png}\\
+      \rule{0pt}{5mm}\\
+      \includegraphics[width=0.8\textwidth]{rossscatter_2_5km.png}
+\end{column}
+\end{columns}
 \end{frame}
 
 
