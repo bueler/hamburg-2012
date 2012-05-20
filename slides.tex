@@ -93,7 +93,7 @@ University of Alaska Fairbanks
   % empty
 }
 
-\section[introduction]{introduction to PISM in 9 slides}
+\section[introduction]{introduction to PISM (8 slides)}
 
 \begin{frame}
   \frametitle{PISM: new user's point of view}
@@ -151,7 +151,6 @@ University of Alaska Fairbanks
   \item since April 2011: jointly developed by UAF and the Potsdam
     Institute for Climate Impact Research (PIK)
   \item a \emph{community} of developers \dots likely to expand?
-  \item merging is harder, but more important than, branching
   \end{itemize}
 \end{frame}
 
@@ -161,16 +160,6 @@ University of Alaska Fairbanks
  \begin{center}
     \includegraphics[width=120mm]{pism-users-map.png}
   \end{center}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{so far \dots}
-
-  \begin{itemize}
-  \item so far I am describing PISM as just another piece of software
-  \item where is the science?
-  \end{itemize}
 \end{frame}
 
 
@@ -417,10 +406,10 @@ FIXME: figure in Andy email
     \includegraphics[height=0.7\textheight]{enthalpy-model.png}
   \end{center}
 
-  \begin{flushleft}
-  \tiny \textbf{Aschwanden et al} (2012) \emph{An enthalpy
-      formulation for glaciers and ice sheets}. J. Glaciol.
- \end{flushleft}
+\begin{flushleft}
+\scriptsize \textbf{Aschwanden, Bueler, Khroulev, Blatter} (2012) \emph{An enthalpy
+      formulation for glaciers and ice sheets}, J. Glaciol. 58 (209), 441--457.
+\end{flushleft}
 \end{frame}
 
 
@@ -429,44 +418,93 @@ FIXME: figure in Andy email
   \framesubtitle{main point: good agreement with observed-period observations without inversion}
 
   \begin{columns}
+  \begin{column}{0.4\textwidth}
+  \begin{itemize}
+  \item using HIRHAM 1989--2009 mean air temp.~and SMB 
+  \item using ice2sea 1km bed topography
+  \end{itemize}
+
+    \includegraphics[width=0.85\textwidth]{csurf_insar_pism_all_4000px}
+  \end{column}
   \begin{column}{0.6\textwidth}
     \includegraphics[width=1.0\textwidth]{ts_mass_2004-2009}
-  \end{column}
-  \begin{column}{0.4\textwidth}
-    \includegraphics[width=1.0\textwidth]{csurf_insar_pism_all_4000px}
   \end{column}
   \end{columns}
 
   \begin{flushleft}
-  \tiny \textbf{Aschwanden, A{\dh}algeirsd{\'o}ttir, Khroulev} (submitted) \emph{Using observations to address ice sheet model sensitivity to initial states}
+  \scriptsize \textbf{Aschwanden, A{\dh}algeirsd{\'o}ttir, Khroulev} (submitted) \emph{Using observations to address ice sheet model sensitivity to initial states}
  \end{flushleft}
 \end{frame}
 
 
-\section[to improve]{what we know we need to improve}
-
-
 \begin{frame}
-  \frametitle{FIXME: Future plans}
+  \frametitle{inversion of SSA (and hybrid) for basal shear stress}
+  \framesubtitle{main point: inversion must be done with care}
+
   \begin{itemize}
   \item inverse modeling (lead by David Maxwell and Marijke Habermann)
+  \item uses new tools (written in Python)
+  \item shares code with PISM
+  \item well under way
+  \end{itemize}
+
+  \begin{center}
+    FIXME: FIGURE
+    %\includegraphics[height=0.7\textheight]{enthalpy-model.png}
+  \end{center}
+
+\begin{flushleft}
+\scriptsize \textbf{Habermann, Maxwell, Truffer} (2012) \emph{Reconstruction of basal properties in ice sheets using iterative inverse methods}, J. Glaciol., to appear
+\end{flushleft}
+\end{frame}
+
+
+\section[to improve]{what we know we need to improve (4 slides)}
+
+\begin{frame}
+  \frametitle{to improve: better grounding line motion}
+  \begin{itemize}
+  \item foo
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{to improve: add ``higher-order'' stress balance}
+  \begin{itemize}
+  \item ``higher-order stress balance'' means one that balances more stresses, in one solution process, than in either the SIA or SSA stress balances
     \begin{itemize}
-    \item uses new tools (written in Python)
-    \item shares code with PISM
-    \item well under way
+    \item[$\circ$]  \emph{note}: Stokes stress balance is \emph{not} planned for PISM
     \end{itemize}
-  \item basal hydrology model (Ed Bueler and Ward van Pelt)
-  \item Blatter stress balance solver$^{*}$
-  \item better coupling
-  \item better transport/advection algorithm
+  \item a Blatter stress balance solver$^{*}$ is present in the PISM dev branch
+    \begin{itemize}
+    \item[$\circ$] but all it can do is ISMIP-HOM
+    \item[$\circ$]
+    \end{itemize}    
+  \item it is unclear how ``higher-order'' is the current SIA+SSA hybrid
   \end{itemize}
 
  \begin{flushleft}
-   \tiny
-    $^{*}$ See \textbf{Brown et al} (2011)
+   \scriptsize
+    $^{*}$see Jed's paper \textbf{Brown et al},
     \emph{Achieving textbook multigrid efficiency for hydrostatic ice sheet
       flow}, submitted to SIAM J. Scientific Computing.
   \end{flushleft}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{to improve: better hydrology model}
+  \begin{itemize}
+  \item foo
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{to improve: better transport schemes}
+  \begin{itemize}
+  \item foo
+  \end{itemize}
 \end{frame}
 
 
