@@ -181,7 +181,7 @@ University of Alaska Fairbanks
 
 
 \begin{frame}
-  \frametitle{one project per month featured at website}
+  \frametitle{one paper per month featured at website}
   \begin{center}
     \includegraphics[height=0.75\textheight]{application-of-the-month.png}
   \end{center}
@@ -490,10 +490,35 @@ University of Alaska Fairbanks
 
 \begin{frame}
   \frametitle{to improve: better grounding line motion}
+\begin{columns}
+\begin{column}{0.6\textwidth}
   \begin{itemize}
-  \item foo
+  \item three ``facts'' from MISMIP etc.~understanding:
+    \begin{enumerate}
+    \item stress balance and mass continuity equations are irregular across grounding lines
+    \item this is not a ``higher order'' issue
+    \item enough grid refinement near the grounding line does solve the problem
+    \end{enumerate}
+  \item but the known fix (item 3) is hard to use in a structured-grid model like PISM
+  \item current PISM has problems:
+    \begin{itemize}
+    \item[$\circ$] grounding line ``sticks'' (top)
+    \item[$\circ$] flux computed as $u H$ has wiggle (bottom)
+    \end{itemize}
   \end{itemize}
+\end{column}
+
+\begin{column}{0.4\textwidth}
+  \begin{center}
+    \includegraphics[width=1.0\textwidth]{A3}
+
+\bigskip
+    \includegraphics[width=1.0\textwidth]{fluxA3}
+  \end{center}
+\end{column}
+\end{columns}
 \end{frame}
+
 
 \begin{frame}
   \frametitle{to improve: add ``higher-order'' stress balance}
@@ -505,9 +530,13 @@ University of Alaska Fairbanks
   \item a Blatter stress balance solver$^{*}$ is present in the PISM dev branch
     \begin{itemize}
     \item[$\circ$] but all it can do is ISMIP-HOM
-    \item[$\circ$]
+    \item[$\circ$] needs moving margins
     \end{itemize}    
-  \item it is unclear how ``higher-order'' is the current SIA+SSA hybrid
+  \item unknown: how ``higher-order'' is the current SIA+SSA hybrid?
+    \begin{itemize}
+    \item[$\circ$] I want Blatter model in PISM to compare results    
+    \item[$\circ$] even then, I'm guessing we will continue to use SIA+SSA mostly
+    \end{itemize}    
   \end{itemize}
 
  \begin{flushleft}
@@ -536,8 +565,8 @@ University of Alaska Fairbanks
     \item[$\circ$] elliptic equation determines water pressure
     \item[$\circ$] physical models for opening (wall melt, sliding) and closure (creep)
     \item[$\circ$] \alert{great danger} in building a model whose parameters cannot be identified
+    \item[$\circ$] I'll give an update on our progress at IGS Fairbanks June 24--29
     \end{itemize}
-  \item I'll give an update on our progress at IGS Fairbanks June 24--29
   \end{itemize}
 \end{frame}
 
@@ -552,7 +581,7 @@ University of Alaska Fairbanks
     \item[$\circ$] transport in conservation of energy needs improvement
     \item[$\circ$] age equation is pure transport
       \begin{itemize}
-      \item it needs improvement so we can validate with isochrones
+      \item needs improvement so we can validate with isochrones
       \end{itemize}
     \end{itemize}
   \end{itemize}
