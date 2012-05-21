@@ -110,8 +110,7 @@ University of Alaska Fairbanks
       \item website: \alert{www.pism-docs.org}
       \item PISM runs on Linux, Unix, and Mac OSX: laptops to supercomputers
       \item stable releases once a year
-      \item designed with usability in mind
-      \item comprehensive User's Manual with real modeling examples
+      \item PDF User's Manual with real modeling examples
       \item \url{help@pism-docs.org}
       \end{itemize}
     \end{column}
@@ -140,7 +139,7 @@ University of Alaska Fairbanks
     \begin{itemize}
     \item[$\circ$] hosted at \texttt{github.com/pism/pism}
     \item[$\circ$] modular (library-like) and extensible C++ code base
-    \item[$\circ$] documented source code (\texttt{doxygen})
+    \item[$\circ$] well-documented source code
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -241,7 +240,7 @@ University of Alaska Fairbanks
 \end{frame}
 
 
-\section[latest release]{latest release  (5 slides)}
+\section[latest release]{about the latest release  (5 slides)}
 
 \begin{frame}
   \frametitle{\texttt{0.5} release of PISM in June 2012}
@@ -254,15 +253,16 @@ University of Alaska Fairbanks
   \item June ``official'' release after more testing, documentation
     \begin{itemize}
     \item[$\circ$] watch for CYROLIST announcement
-    \item[$\circ$] (\dots do ``\texttt{git pull}'' and recompile then)
+    \item[$\circ$] \dots then do ``\texttt{git pull}'' and recompile
     \end{itemize}
   \item changelog from \texttt{pism0.4}:
     \begin{itemize}
     \item[$\circ$] more improvements to usability than new features
     \item[$\circ$] requires PETSc 3.2
     \item[$\circ$] \texttt{-o\_format [netcdf4\_parallel, pnetcdf]}
-    \item[$\circ$] good calendar handling
-    \item[$\circ$] improved documentation of climate forcing code
+    \item[$\circ$] better calendar handling
+    \item[$\circ$] more complete climate-forcing ``couplers''
+    \item[$\circ$] improved documentation of climate-forcing
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -399,6 +399,7 @@ University of Alaska Fairbanks
     
     \texttt{\phantom{foobar} -thickness\_calving -calving\_at\_thickness 50.0}
     \normalsize
+  \item \alert{main point:}  these options can be combined
   \end{itemize}
 \end{frame}
 
