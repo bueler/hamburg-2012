@@ -12,14 +12,15 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,wasysym}
 \usepackage{lmodern}
-%\usepackage{movie15}
+
 \usepackage{tikz}
-\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{shapes,arrows,shadows}
 
 \usepackage{empheq}
 \usepackage{color}
 \usepackage{animate}
 
+\graphicspath{{figures/}}
 
 % Some useful commands (from MPL)
 \newcommand{\s}[1]{\ensuremath{\,\text{#1}}}
@@ -36,9 +37,6 @@
 
 \setbeamercolor{boxed}{fg=black,bg=uaf yellow}
 
-\graphicspath{{figures/}}
-
-\usetikzlibrary{shadows}
 
 \newenvironment{transbox}{%
   \begin{tikzpicture}
@@ -92,6 +90,12 @@ University of Alaska Fairbanks
 {
   % empty
 }
+
+\begin{frame}
+   \frametitle{Outline}
+   \tableofcontents[subsectionstyle=hide/hide/hide]
+\end{frame}
+
 
 \section[introduction]{introduction to PISM (8 slides)}
 
@@ -220,16 +224,14 @@ University of Alaska Fairbanks
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{center}
-      %\includegraphics[width=1.0\textwidth]{}
-      FIXME
+      \includegraphics[width=0.8\textwidth]{Constantine-2x2-small.jpg}
       
       Constantine Khroulev
       \end{center}
     \end{column}
     \begin{column}{0.5\textwidth}
       \begin{center}
-      %\includegraphics[width=1.0\textwidth]{}
-      FIXME
+      \includegraphics[width=0.8\textwidth]{andy_valdez_crop.jpg}
       
       Andy Aschwanden
       \end{center}
@@ -271,7 +273,7 @@ University of Alaska Fairbanks
 
 \vspace{-1mm}
   \begin{itemize}
-  \item previous limitation: can't write very large ($\sim$ 4 Gb) model results
+  \item previous limitation: can't write very large ($>4$Gb) model results
   \item \emph{new}: optional use of parallel NetCDF4 or \texttt{pnetcdf}
   \item \emph{get}: 1km Greenland runs for 100 model years
     \scriptsize
@@ -320,25 +322,33 @@ University of Alaska Fairbanks
 
 \begin{frame}
   \frametitle{\texttt{0.5} update: regional tools}
-  \framesubtitle{(e.g.~Jakobshavn outlet glacier)}
+  \framesubtitle{outlet glacier models}
   
 \begin{columns}
-\begin{column}{0.5\textwidth}
+\begin{column}{0.6\textwidth}
 \begin{itemize}
-\vspace{-2mm}
+\vspace{-5mm}
 \small
 \item regional models allow large parameter studies on fine grids
 \item automated drainage basin identification from DEM (below)
+\item outside of drainage basin is \emph{not} modeled
+\item 1km results for Jakobshavn Isbr{\ae} (right)
+  \begin{itemize}
+  \scriptsize
+  \item[top:]    observed
+  \item[middle:] regional model (present-day geom.~outside)
+  \item[bottom:] whole ice sheet model with evolving margins
+  \end{itemize}
 \end{itemize}
 
-\vspace{2mm}
-
-  \includegraphics[width=0.85\textwidth]{jako_3km}
-
+%\vspace{2mm}
+  \begin{center}
+  \includegraphics[width=0.5\textwidth]{jako_3km}
+  \end{center}
 \end{column}
 
-\begin{column}{0.5\textwidth}
-FIXME: figure in Andy email
+\begin{column}{0.4\textwidth}
+  \includegraphics[width=0.9\textwidth]{jako-grn1km}
 \end{column}
 \end{columns}
 
