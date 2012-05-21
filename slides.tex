@@ -395,7 +395,7 @@ University of Alaska Fairbanks
 
     \texttt{\dots\quad -ocean\_kill bar.nc -cfbc -kill\_icebergs}
 
-    \texttt{\dots\quad -eigen\_calving -eigen\_calving\_K 1e17 $\backslash$}
+    \texttt{\dots\quad -pik -eigen\_calving -eigen\_calving\_K 1e17 $\backslash$}
     
     \texttt{\phantom{foobar} -thickness\_calving -calving\_at\_thickness 50.0}
     \normalsize
@@ -452,20 +452,20 @@ University of Alaska Fairbanks
 
 \begin{columns}
 \begin{column}{0.5\textwidth}
-\vspace{-10mm}
+\vspace{-8mm}
   \begin{itemize}
   \small
   \item new fast method of computing basal basal shear stress from surface velocities by inverting SSA
     \begin{itemize}
     \small
     \item[$\circ$] ``incomplete Gauss-Newton'' by David Maxwell (top figure)
+    \item[$\circ$] uses \texttt{-ssa\_method fem}
     \item[$\circ$] new python tools:
 
     \medskip
     \tiny \texttt{git@github.com:damaxwell/siple.git}
     \end{itemize}
-  \item some code already in PISM
-  \item uses \texttt{-ssa\_method fem}
+  \item preliminary inversions at Jakobshavn using PISM (not shown)
   \item David says ``inversion is an exercise in managed expectations'' (bottom)
   \end{itemize}
 
@@ -500,8 +500,8 @@ University of Alaska Fairbanks
     \item this is not a ``higher order'' issue
     \item enough grid refinement near the grounding line does solve the problem
     \end{enumerate}
-  \item but the known fix (item 3) is hard to use in a structured-grid model like PISM
-  \item current PISM has problems:
+  \item but the known fix (\alert{3} above) is hard to use in a structured-grid model like PISM
+  \item current PISM has these problems:
     \begin{itemize}
     \item[$\circ$] grounding line ``sticks'' (top)
     \item[$\circ$] flux computed as $u H$ has wiggle (bottom)
@@ -524,7 +524,7 @@ University of Alaska Fairbanks
 \begin{frame}
   \frametitle{to improve: add ``higher-order'' stress balance}
   \begin{itemize}
-  \item ``higher-order stress balance'' means one that balances more stresses, in one solution process, than in either the SIA or SSA stress balances
+  \item ``higher-order stress balance'' balances more stresses, in one solution process, than in either the SIA or SSA stress balances
     \begin{itemize}
     \item[$\circ$]  \emph{note}: Stokes stress balance is \emph{not} planned for PISM
     \end{itemize}
@@ -535,8 +535,8 @@ University of Alaska Fairbanks
     \end{itemize}    
   \item unknown: how ``higher-order'' is the current SIA+SSA hybrid?
     \begin{itemize}
-    \item[$\circ$] I want Blatter model in PISM to compare results    
-    \item[$\circ$] even then, I'm guessing we will continue to use SIA+SSA mostly
+    \item[$\circ$] first purpose of Blatter model in PISM is to compare results    
+    \item[$\circ$] we will probably continue to use SIA+SSA mostly
     \end{itemize}    
   \end{itemize}
 
@@ -552,13 +552,14 @@ University of Alaska Fairbanks
 \begin{frame}
   \frametitle{to improve: better subglacial hydrology model}
   \begin{itemize}
-  \item current PISM hydrology very simplified
+  \item the current PISM hydrology model is very simplified:
     \begin{itemize}
     \item[$\circ$] no lateral transport of liquid water
     \item[$\circ$] liquid water not conserved
-    \item[$\circ$] model is probably suitable for (e.g.) Siple coast ice streams, \alert{but}:
+    \item[$\circ$] model is probably suitable for Siple coast ice streams (Tulaczyk 2000)
+    \item[$\circ$] not so good for temperate and high-driving-stress (outlet) glaciers
     \end{itemize}
-  \item start on a new model (W.~van Pelt \& Bueler):
+  \item start on a new model (van Pelt \& Bueler):
     \begin{itemize}
     \item[$\circ$] inspired by Hewitt (2011) and Schoof et al.~(2012)
     \item[$\circ$] mass of water is conserved
