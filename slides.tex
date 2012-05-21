@@ -341,7 +341,6 @@ University of Alaska Fairbanks
   \end{itemize}
 \end{itemize}
 
-%\vspace{2mm}
   \begin{center}
   \includegraphics[width=0.5\textwidth]{jako_3km}
   \end{center}
@@ -356,7 +355,6 @@ University of Alaska Fairbanks
 \scriptsize \texttt{git clone git://github.com/pism/regional-tools.git}
 \end{center}
 \end{frame}
-
 
 
 \begin{frame}
@@ -451,25 +449,44 @@ University of Alaska Fairbanks
   \frametitle{inversion of SSA (and hybrid) for basal shear stress}
   \framesubtitle{main point: inversion must be done with care}
 
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\vspace{-10mm}
   \begin{itemize}
-  \item inverse modeling (lead by David Maxwell and Marijke Habermann)
-  \item uses new tools (written in Python)
-  \item shares code with PISM
-  \item well under way
-  \end{itemize}
+  \small
+  \item new fast method of computing basal basal shear stress from surface velocities by inverting SSA
+    \begin{itemize}
+    \small
+    \item[$\circ$] ``incomplete Gauss-Newton'' by David Maxwell (top figure)
+    \item[$\circ$] new python tools:
 
-  \begin{center}
-    FIXME: FIGURE
-    %\includegraphics[height=0.7\textheight]{enthalpy-model.png}
-  \end{center}
+    \medskip
+    \tiny \texttt{git@github.com:damaxwell/siple.git}
+    \end{itemize}
+  \item some code already in PISM
+  \item uses \texttt{-ssa\_method fem}
+  \item David says ``inversion is an exercise in managed expectations'' (bottom)
+  \end{itemize}
 
 \begin{flushleft}
 \scriptsize \textbf{Habermann, Maxwell, Truffer} (2012) \emph{Reconstruction of basal properties in ice sheets using iterative inverse methods}, J. Glaciol., to appear
 \end{flushleft}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\vspace{-5mm}
+  \begin{center}
+    \includegraphics[width=0.85\textwidth]{ign_vs_other}
+
+\bigskip
+    \includegraphics[width=1.0\textwidth]{rough_smooth_forward}
+  \end{center}
+\end{column}
+\end{columns}
 \end{frame}
 
 
-\section[to improve]{what we know we need to improve (4 slides)}
+\section[to improve]{what we KNOW we need to improve (4 slides)}
 
 \begin{frame}
   \frametitle{to improve: better grounding line motion}
@@ -503,9 +520,24 @@ University of Alaska Fairbanks
 
 
 \begin{frame}
-  \frametitle{to improve: better hydrology model}
+  \frametitle{to improve: better subglacial hydrology model}
   \begin{itemize}
-  \item foo
+  \item current PISM hydrology very simplified
+    \begin{itemize}
+    \item[$\circ$] no lateral transport of liquid water
+    \item[$\circ$] liquid water not conserved
+    \item[$\circ$] model is probably suitable for (e.g.) Siple coast ice streams, \alert{but}:
+    \end{itemize}
+  \item start on a new model (W.~van Pelt \& Bueler):
+    \begin{itemize}
+    \item[$\circ$] inspired by Hewitt (2011) and Schoof et al.~(2012)
+    \item[$\circ$] mass of water is conserved
+    \item[$\circ$] lateral transport of water driven by pressure gradient (Darcian)
+    \item[$\circ$] elliptic equation determines water pressure
+    \item[$\circ$] physical models for opening (wall melt, sliding) and closure (creep)
+    \item[$\circ$] \alert{great danger} in building a model whose parameters cannot be identified
+    \end{itemize}
+  \item I'll give an update on our progress at IGS Fairbanks June 24--29
   \end{itemize}
 \end{frame}
 
@@ -513,7 +545,16 @@ University of Alaska Fairbanks
 \begin{frame}
   \frametitle{to improve: better transport schemes}
   \begin{itemize}
-  \item foo
+  \item we are currently using first-order upwinding schemes for transport
+  \item \emph{note}: ice sheet flow is a diffusion at large scale, so numerically-diffusive transport schemes are often not noticeable
+  \item \alert{but}:
+    \begin{itemize}
+    \item[$\circ$] transport in conservation of energy needs improvement
+    \item[$\circ$] age equation is pure transport
+      \begin{itemize}
+      \item it needs improvement so we can validate with isochrones
+      \end{itemize}
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
